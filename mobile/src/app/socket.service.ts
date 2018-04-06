@@ -7,7 +7,7 @@ export class AppSocketService {
 
   private _listener = new Subject();
   constructor() {
-    let server = io.connect('127.0.0.1:7573');
+    let server = io.connect('10.10.47.140:7573');
 
     server.on('any:message', (val) => {
       this._listener.next( { event: 'any:message', data: val });

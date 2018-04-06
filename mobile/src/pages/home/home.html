@@ -5,14 +5,24 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>Temperature: {{temp}}</p>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <h2>Smart Climate System</h2>
+  <p>Current Temperature: {{temp}}</p>
+  <p>Target Temperature: {{setTemp}}</p>
+  <p>Delta Temperature: {{setDelta}}</p>
+  <ion-list>
+    <ion-item>
+      Target Temp:
+      <ion-range min="60" max="90" [(ngModel)]="setTemp" debounce="100" (ionChange)="onTempChanged()">
+        <ion-icon range-left small>60</ion-icon>
+        <ion-icon range-right small>90</ion-icon>
+      </ion-range>
+    </ion-item>
+    <ion-item>
+      Delta Temp:
+      <ion-range min="0" max="5" [(ngModel)]="setDelta" debounce="100" (ionChange)="onDeltaChanged()">
+        <ion-icon range-left small>0</ion-icon>
+        <ion-icon range-right small>5</ion-icon>
+      </ion-range>
+    </ion-item>
+  </ion-list>
 </ion-content>
