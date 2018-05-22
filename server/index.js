@@ -45,6 +45,7 @@ board.on("ready", function() {
 
   process.env.PORT = 7573;
   process.env.NODE_URL = '10.10.47.140';
+  process.env.NODE_ENV = 'development';
   require('mahrio').runServer( process.env, __dirname).then( function(server) {
     io = require('socket.io').listen( server.listener );
     server.route({
